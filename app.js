@@ -17,9 +17,11 @@ app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 
 // import routes
 var courses = require('./routes/courses');
+var users = require('./routes/users');
 
 // setup routes
 app.use('/courses', courses);
+app.use('/users', users);
 
 // run the server
 app.listen(3000, function() {

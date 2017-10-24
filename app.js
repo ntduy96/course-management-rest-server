@@ -16,6 +16,10 @@ app.use(methodOverride());
 app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 
 // import routes
+var courses = require('./routes/courses');
+
+// setup routes
+app.use('/courses', courses);
 
 // run the server
 app.listen(3000, function() {

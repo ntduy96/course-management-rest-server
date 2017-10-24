@@ -12,4 +12,17 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/:id', function(req, res) {
+  var id = req.params.id;
+
+  db.query('SELECT * FROM course WHERE id = ?', [id], function(err, results) {
+    if (err) {
+      console.log(err);
+      res.send(500, 'Sorry, some errors occured :(');
+    } else {
+      res.send(results[0]);
+    }
+  });
+});
+
 module.exports = router;
